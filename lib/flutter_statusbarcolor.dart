@@ -13,7 +13,7 @@ class FlutterStatusbarcolor {
   /// Get the status bar background color.
   static Future<Color> getStatusBarColor() =>
       _channel.invokeMethod('getstatusbarcolor').then((dynamic value) {
-        return value == null ? null : Color(value);
+        return value ?? Color(value);
       });
 
   /// Set the status bar background color.
@@ -29,7 +29,7 @@ class FlutterStatusbarcolor {
   /// Set the status bar foreground brightness.
   /// Set to true, the color of the text and icon
   /// will be white, otherwise black.
-  static Future<void> setStatusBarWhiteForeground(bool useWhiteForeground) =>
+  static Future<void> setStatusBarWhiteForeground(bool? useWhiteForeground) =>
       _channel.invokeMethod('setstatusbarwhiteforeground', {
         'whiteForeground': useWhiteForeground,
       });
@@ -39,7 +39,7 @@ class FlutterStatusbarcolor {
   /// Get the navigation bar background color.
   static Future<Color> getNavigationBarColor() =>
       _channel.invokeMethod('getnavigationbarcolor').then((dynamic value) {
-        return value == null ? null : Color(value);
+        return value ?? Color(value);
       });
 
   /// Android only
@@ -62,7 +62,7 @@ class FlutterStatusbarcolor {
   /// Set to true, the color of the text and icon
   /// will be white, otherwise black.
   static Future<void> setNavigationBarWhiteForeground(
-          bool useWhiteForeground) =>
+          bool? useWhiteForeground) =>
       _channel.invokeMethod('setnavigationbarwhiteforeground', {
         'whiteForeground': useWhiteForeground,
       });
